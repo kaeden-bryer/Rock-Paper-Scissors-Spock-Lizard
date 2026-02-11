@@ -1,12 +1,16 @@
 <script setup lang="ts">
-  import circle from '/images/circle.svg'
-  import rock from '/images/icon-rock.svg'
+  const props = defineProps({
+    icon: String,
+    circle: String
+  })
+
+
 </script>
 
 <template>
   <div class="button-container">
-    <img class="rock-container" :src="circle" alt="circle" />
-    <img class="rock" :src="rock" alt="rock" />
+    <img class="icon-circle" :src="props.circle" alt="circle" />
+    <img class="icon" :src="props.icon" alt="icon" />
   </div>
 </template>
 
@@ -17,17 +21,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30vw;
-    height: 30vw;
-    border: 2px solid white;
+    width: 10vw;
+    cursor: pointer;
   }
 
-  .rock-container {
+  .button-container:hover {
+    scale: 1.1;
+    transition: scale 0.05s ease-in-out;
+  }
+
+  .icon-circle {
     position: absolute;
     width: 100%;
   }
 
-  .rock {
+  .icon {
     position: absolute;
     width: 100%;
     scale: 0.4;

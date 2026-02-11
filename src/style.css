@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 48%, 15%));
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,11 +20,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
   text-align: center;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 
 
