@@ -14,7 +14,6 @@
 
 <script setup lang="ts">
     import ActionButton from './ActionButton.vue'
-    import { ref } from 'vue' // might use later
     import Triangle from '/images/bg-triangle.svg'
 
 </script>
