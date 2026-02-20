@@ -17,6 +17,7 @@
       <BattleScene v-else 
         :userSelection="userSelection"
         @play-again="exitBattleScene()"
+        @updateScore="(pointIncrement) => score = score + pointIncrement"
       />
     </div>
   </div>

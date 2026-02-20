@@ -5,7 +5,7 @@
             <ActionButton :icon="userSelectionImage" :circle="userCircleColor" />
         </div>
         
-        <div class="result">
+        <div v-if="gameResult" class="result">
             <h2>{{ gameResult }}</h2>
             <button class="play-again" @click="handlePlayAgain">Play Again</button>        
         </div>
@@ -39,7 +39,7 @@ export default {
             circleColor: ['/images/circle-red.svg', '/images/circle-blue.svg', '/images/circle-yellow.svg'] as string[],
             computerSelectionImage: undefined as string | undefined,
             computerCircleColor: undefined as string | undefined,
-            gameResult: ref('')
+            gameResult: ref(''),
         };
     },
     mounted() {
@@ -64,16 +64,18 @@ export default {
             ) {
                 console.log('user wins');
                 this.gameResult = 'You Win!';
+                this.$emit('updateScore', 1);
             } else {
                 console.log('computer wins');
                 this.gameResult = 'You Lose!';
+                this.$emit('updateScore', -1);
             }
         },
         handlePlayAgain() {
             this.$emit('playAgain');
         }
     },
-    emits: ['playAgain'],
+    emits: ['playAgain', 'updateScore'],
     computed: {
         userSelectionImage(): string | undefined {
             console.log("user selection: " + this.userSelection);

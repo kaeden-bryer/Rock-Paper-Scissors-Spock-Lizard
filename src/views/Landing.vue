@@ -2,6 +2,7 @@
     <div class="landing">
         <h1>Kaeden's intern project</h1>
         <p>Been working on this bad boy for ya</p>
+        <RouterLink to="/game">Play Game</RouterLink>
     </div>
 </template>
 
