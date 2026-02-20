@@ -2,24 +2,91 @@
     <div class="battle-scene">
         <div class="choice player">
             <h3>You Picked</h3>
-            <ActionButton icon="/images/icon-paper.svg" circle="/images/circle-blue.svg" />
+            <ActionButton :icon="userSelectionImage" :circle="userCircleColor" />
         </div>
         
         <div class="result">
-            <h2>You Win</h2>
-            <button class="play-again">Play Again</button>        
+            <h2>{{ gameResult }}</h2>
+            <button class="play-again" @click="handlePlayAgain">Play Again</button>        
         </div>
 
         <div class="choice opponent">
             <h3>The House Picked</h3>
-            <ActionButton icon="/images/icon-rock.svg" circle="/images/circle-red.svg" />
+            <ActionButton :icon="computerSelectionImage" :circle="computerCircleColor" />
         </div>  
     </div>  
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import { ref } from 'vue';
 import ActionButton from './ActionButton.vue';
 
+
+export default {
+    components: { 
+        ActionButton 
+    },
+    props: {
+        userSelection: {
+            type: String,
+            required: true
+        }
+    },
+    data() {
+        return {
+            selections: ['rock', 'paper', 'scissors'] as string[],
+            actionImage: ['/images/icon-rock.svg', '/images/icon-paper.svg', '/images/icon-scissors.svg'] as string[],
+            circleColor: ['/images/circle-red.svg', '/images/circle-blue.svg', '/images/circle-yellow.svg'] as string[],
+            computerSelectionImage: undefined as string | undefined,
+            computerCircleColor: undefined as string | undefined,
+            gameResult: ref('')
+        };
+    },
+    mounted() {
+        setTimeout(() => {
+            const computerSelection = Math.floor(Math.random() * this.selections.length);
+            this.computerSelectionImage = this.actionImage[computerSelection];
+            this.computerCircleColor = this.circleColor[computerSelection];
+            console.log('computer selection: ' + this.selections[computerSelection]);
+            this.handleGame(this.selections[computerSelection]!)
+        }, 2000);
+    },
+    methods: {
+        handleGame(computerSelection: string) {
+            console.log('handle game logic here');
+            if (this.userSelection === computerSelection) {
+                console.log('tie');
+                this.gameResult = 'It\'s a Tie!';
+            } else if (
+                (this.userSelection === 'rock' && computerSelection === 'scissors') ||
+                (this.userSelection === 'paper' && computerSelection === 'rock') ||
+                (this.userSelection === 'scissors' && computerSelection === 'paper')
+            ) {
+                console.log('user wins');
+                this.gameResult = 'You Win!';
+            } else {
+                console.log('computer wins');
+                this.gameResult = 'You Lose!';
+            }
+        },
+        handlePlayAgain() {
+            this.$emit('playAgain');
+        }
+    },
+    emits: ['playAgain'],
+    computed: {
+        userSelectionImage(): string | undefined {
+            console.log("user selection: " + this.userSelection);
+            const index = this.selections.indexOf(this.userSelection);
+            return this.actionImage[index];
+        },
+        userCircleColor(): string | undefined {
+            console.log("user selection: " + this.userSelection);
+            const index = this.selections.indexOf(this.userSelection);
+            return this.circleColor[index];
+        }
+    }
+}
 
 
 </script>

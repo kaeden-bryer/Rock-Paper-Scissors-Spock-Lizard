@@ -9,8 +9,8 @@
 
 <template>
   <div class="button-container">
-    <img class="icon-circle" :src="props.circle" alt="circle" />
-    <img class="icon" :src="props.icon" alt="icon" />
+    <img class="icon-circle" :src="props.circle"/>
+    <img class="icon" :src="props.icon" />
   </div>
 </template>
 

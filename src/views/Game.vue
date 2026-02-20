@@ -1,14 +1,3 @@
-<script setup lang="ts">
-  import BattleScene from '../components/BattleScene.vue'
-  import GameArea from '../components/GameArea.vue'
-  import logo from '/images/logo.svg'
-  import { ref } from 'vue'
-
-  const score = ref(0)
-  const scene = ref('battle') // 'game' or 'battle'
-
-
-</script>
 
 <template>
   <div class="app-container">
@@ -22,11 +11,40 @@
     </div>
 
     <div class="game-area">
-      <GameArea v-if="scene === 'game'" />
-      <BattleScene v-else />
+      <GameArea v-if="scene === 'game'" 
+        @begin-battle="(selection)  => goToBattle(selection)"
+      />
+      <BattleScene v-else 
+        :userSelection="userSelection"
+        @play-again="exitBattleScene()"
+      />
     </div>
   </div>
 </template>
+
+
+<script setup lang="ts">
+  import BattleScene from '../components/BattleScene.vue'
+  import GameArea from '../components/GameArea.vue'
+  import logo from '/images/logo.svg'
+  import { ref } from 'vue'
+
+  const score = ref(0)
+  const scene = ref('game') // 'game' or 'battle'
+  const userSelection = ref('')
+
+  function goToBattle(userSelectionValue: string) {
+    userSelection.value = userSelectionValue;
+    console.log('go to battle with selection: ' + userSelection.value);
+    scene.value = 'battle';
+  }
+
+  function exitBattleScene() {
+    scene.value = 'game';
+  }
+
+</script>
+
 
 <style scoped>
 
