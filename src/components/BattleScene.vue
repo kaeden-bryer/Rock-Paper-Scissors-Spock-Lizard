@@ -118,7 +118,6 @@ export default {
     align-items: center;
     height: 100%;
     width: 30%;
-    border: 1px solid black;
 }
 
 .play-again {

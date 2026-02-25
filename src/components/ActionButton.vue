@@ -28,7 +28,6 @@
     width: 100%;
     height: 100%;
     cursor: pointer;
-    border: 1px solid black;
   }
 
   .button-container:hover {
