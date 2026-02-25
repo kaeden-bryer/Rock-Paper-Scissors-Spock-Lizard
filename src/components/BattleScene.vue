@@ -2,7 +2,12 @@
     <div class="battle-scene">
         <div class="choice player">
             <h3>You Picked</h3>
-            <ActionButton :icon="userSelectionImage" :circle="userCircleColor" />
+            <div class="action-button-container">
+                <ActionButton 
+                    :icon="userSelectionImage" 
+                    :circle="userCircleColor" 
+                />
+            </div>
         </div>
         
         <div v-if="gameResult" class="result">
@@ -12,7 +17,12 @@
 
         <div class="choice opponent">
             <h3>The House Picked</h3>
-            <ActionButton :icon="computerSelectionImage" :circle="computerCircleColor" />
+            <div class="action-button-container">
+                <ActionButton 
+                    :icon="computerSelectionImage" 
+                    :circle="computerCircleColor" 
+                />
+            </div>
         </div>  
     </div>  
 </template>
@@ -123,6 +133,11 @@ export default {
 .play-again:hover {
     scale: 1.1;
     transition: scale 0.05s ease-in-out;
+}
+
+.action-button-container {
+    width: 20vw;
+    height: 20vw;
 }
 
 </style>

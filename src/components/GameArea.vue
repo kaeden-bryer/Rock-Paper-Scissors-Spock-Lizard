@@ -4,24 +4,30 @@
             <img class="triangle" :src="Triangle" alt="triangle" />
         </div>
         <div class="buttons">
-            <ActionButton 
-                id="paper-button" 
-                icon="/images/icon-paper.svg" 
-                circle="/images/circle-blue.svg" 
-                @click="$emit('beginBattle', 'paper')"
-            />
-            <ActionButton 
-                id="rock-button" 
-                icon="/images/icon-rock.svg" 
-                circle="/images/circle-red.svg" 
-                @click="$emit('beginBattle', 'rock')"
-            />
-            <ActionButton 
-                id="scissors-button" 
-                icon="/images/icon-scissors.svg" 
-                circle="/images/circle-yellow.svg" 
-                @click="$emit('beginBattle', 'scissors')"
-            />
+            <div class="action-button-container">
+                <ActionButton 
+                    id="paper-button" 
+                    icon="/images/icon-paper.svg" 
+                    circle="/images/circle-blue.svg" 
+                    @click="$emit('beginBattle', 'paper')"
+                />
+            </div>
+            <div class="action-button-container">
+                <ActionButton 
+                    id="rock-button" 
+                    icon="/images/icon-rock.svg" 
+                    circle="/images/circle-red.svg" 
+                    @click="$emit('beginBattle', 'rock')"
+                />
+            </div>
+            <div class="action-button-container">
+                <ActionButton 
+                    id="scissors-button" 
+                    icon="/images/icon-scissors.svg" 
+                    circle="/images/circle-yellow.svg" 
+                    @click="$emit('beginBattle', 'scissors')"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -70,6 +76,12 @@
         align-items: center;
         height: 100%;
         width: 100%;
+    }
+
+    .action-button-container {
+        width: 10vw;
+        height: 10vw;
+        cursor: pointer;
     }
 
 </style>

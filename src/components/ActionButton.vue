@@ -1,18 +1,22 @@
-<script setup lang="ts">
-  const props = defineProps({
-    icon: String,
-    circle: String
-  })
+<template>
+  <div class="button-container">
+    <img class="icon-circle" :src="circle"/>
+    <img class="icon" :src="icon" />
+  </div>
+</template>
 
+
+<script lang="ts">
+
+  export default {
+    props: {
+      icon: String,
+      circle: String,
+    }
+  }
 
 </script>
 
-<template>
-  <div class="button-container">
-    <img class="icon-circle" :src="props.circle"/>
-    <img class="icon" :src="props.icon" />
-  </div>
-</template>
 
 <style scoped>
 
@@ -21,8 +25,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10vw;
-    height: 10vw;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
     border: 1px solid black;
   }
