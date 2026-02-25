@@ -51,8 +51,8 @@
 
 <style scoped>
     .game-area {
-        width: 60vw;
-        height: 60vh;
+        width: 30vw;
+        height: 50vh;
         position: relative;
         display: flex;
         justify-content: center;
@@ -65,6 +65,14 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+    }
+
+    .triangle {
+        margin-top: 8%;
+        width: 80%;
+        height: 80%;
     }
 
     .buttons {

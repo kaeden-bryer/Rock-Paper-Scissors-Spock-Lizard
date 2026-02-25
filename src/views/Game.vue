@@ -102,7 +102,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
-  width: 100%;
+  margin-top: 7vh;
 }
 </style>
