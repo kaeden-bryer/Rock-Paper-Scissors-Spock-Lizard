@@ -8,7 +8,7 @@
             <div class="rules-modal">
                 <div class="rules-header">
                     <h2>RULES</h2>
-                    <img src="/images/icon-close.svg" class="icon-close" alt="close" @click="toggleRulesModal()" />
+                    <img src="/images/icon-close.svg" class="icon-close" alt="close" />
                 </div>
                 <img src="/images/image-rules.svg" alt="rules" />
             </div>
