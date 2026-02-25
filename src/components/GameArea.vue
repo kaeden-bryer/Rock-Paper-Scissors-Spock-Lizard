@@ -48,7 +48,6 @@
 
 <style scoped>
     .game-area {
-        background-color: pink;
         width: 313px;
         height: 278px;
         position: relative;

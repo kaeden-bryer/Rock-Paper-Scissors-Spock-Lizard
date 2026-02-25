@@ -94,7 +94,6 @@ export default {
 
 <style scoped>
 .battle-scene {
-    background-color: pink;
     width: 70vw;
     height: 60vh;
     display: flex;

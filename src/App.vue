@@ -1,6 +1,5 @@
 <template>
     <div class="app-container">
-        <h1>Rock Paper Scissors</h1>
         <RouterView />
     </div>
 </template>

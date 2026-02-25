@@ -31,7 +31,7 @@
   import { ref } from 'vue'
 
   const score = ref(0)
-  const scene = ref('game') // 'game' or 'battle'
+  const scene = ref('game') // 'game' or 'battle', might change to handle errors
   const userSelection = ref('')
 
   function goToBattle(userSelectionValue: string) {
@@ -50,7 +50,6 @@
 <style scoped>
 
 .app-container {
-  background: gray;
   width: 70vw;
   height: 90vh;
   display: flex;
@@ -73,21 +72,30 @@
 .score {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;  
   background-color: white;
-  color: darkblue;
+  color: rgb(30, 30, 30);
   border-radius: 20px;
   width: 8vw;
-  padding-top: 0px;
 }
 
-.score-title, .score-value, .score {
-  border: 1px solid black;
+.score-title {
+  font-size: 1rem;
 }
 
 .score-value {
-  font-size: 2em;
+  font-size: 3rem;
   font-weight: bold;
+}
+
+.score-title, .score-value {
+  margin: 0;
+  padding: 0;
+}
+
+.score {
+  border: 1px solid black;
+  padding: 5px;
 }
 
 .game-area {
