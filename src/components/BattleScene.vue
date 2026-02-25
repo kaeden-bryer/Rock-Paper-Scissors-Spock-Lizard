@@ -38,7 +38,7 @@ export default {
             actionImage: ['/images/icon-rock.svg', '/images/icon-paper.svg', '/images/icon-scissors.svg'] as string[],
             circleColor: ['/images/circle-red.svg', '/images/circle-blue.svg', '/images/circle-yellow.svg'] as string[],
             computerSelectionImage: undefined as string | undefined,
-            computerCircleColor: undefined as string | undefined,
+            computerCircleColor: '/images/circle-loading.svg' as string | undefined,
             gameResult: ref(''),
         };
     },
@@ -89,7 +89,6 @@ export default {
         }
     }
 }
-
 
 </script>
 

@@ -22,7 +22,9 @@
     justify-content: center;
     align-items: center;
     width: 10vw;
+    height: 10vw;
     cursor: pointer;
+    border: 1px solid black;
   }
 
   .button-container:hover {

@@ -73,17 +73,4 @@
         width: 100%;
     }
 
-    #rock-button {
-        background-color: rgb(255, 0, 0);
-    }
-
-    #paper-button {
-        background-color: rgb(0, 0, 255);
-    }
-
-    #scissors-button {
-        background-color: rgb(255, 255, 0);
-        bottom: 0;
-    }   
-
 </style>
