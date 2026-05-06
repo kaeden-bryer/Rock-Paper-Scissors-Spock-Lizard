@@ -6,4 +6,4 @@ Inspired by [frontendmentor.io](https://www.frontendmentor.io/challenges/rock-pa
 
 Just rock paper scissors. I mean it's alright--it works, but definitely could be better.
 
-Also, I made my own music for this. Honestly the music is probably the best part about it.
+Also, I made my own music. Honestly the music is probably the best part about it.
