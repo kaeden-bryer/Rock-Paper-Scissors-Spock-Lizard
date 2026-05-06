@@ -30,6 +30,7 @@
 <script lang="ts">
 import { ref } from 'vue';
 import ActionButton from './ActionButton.vue';
+import confetti from '@hiseb/confetti';
 
 
 export default {
@@ -72,13 +73,11 @@ export default {
                 (this.userSelection === 'paper' && computerSelection === 'rock') ||
                 (this.userSelection === 'scissors' && computerSelection === 'paper')
             ) {
-                console.log('user wins');
+                confetti({});
                 this.gameResult = 'You Win!';
                 this.$emit('updateScore', 1);
             } else {
-                console.log('computer wins');
                 this.gameResult = 'You Lose!';
-                this.$emit('updateScore', -1);
             }
         },
         handlePlayAgain() {
