@@ -11,6 +11,9 @@
                     <img src="/images/icon-close.svg" class="icon-close" alt="close" />
                 </div>
                 <img src="/images/image-rules.svg" alt="rules" />
+                <audio autoplay loop>
+                    <source src="/music/Rock_Paper_Scissors_Beat.mp3" type="audio/mpeg">
+                </audio>
             </div>
         </div>
     </div>

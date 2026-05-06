@@ -55,8 +55,7 @@ export default {
     },
     mounted() {
         setTimeout(() => {
-            // const computerSelection = Math.floor(Math.random() * this.selections.length);
-            const computerSelection = 0;
+            const computerSelection = Math.floor(Math.random() * this.selections.length);
             this.computerSelectionImage = this.actionImage[computerSelection];
             this.computerCircleColor = this.circleColor[computerSelection];
             console.log('computer selection: ' + this.selections[computerSelection]);

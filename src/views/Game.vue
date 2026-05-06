@@ -5,10 +5,11 @@
     <div class="header"> 
       <img class="logo" :src="logo" alt="logo" />
       <div class="score">
-        <h2 class="score-title" :class="{ 'streak': isStreak }">SCORE</h2>
+        <h2 class="score-title" :class="{ 'streak': score >= 3, 'highstreak': score >= 5 }">SCORE</h2>
         <div class="streak-box">
-          <p class="score-value" :class="{ 'streak': isStreak }">{{ score }}</p>
-          <img v-if="isStreak" src="/images/streak.gif">
+          <p class="score-value" :class="{ 'streak': score >= 3, 'highstreak': score >= 5 }">{{ score }}</p>
+          <img v-if="score >= 3 && score < 5" src="/images/streak.gif">
+          <img v-if="score >= 5" src="/images/scream.png">
         </div>
       </div>
     </div>
@@ -31,13 +32,11 @@
   import BattleScene from '../components/BattleScene.vue'
   import GameArea from '../components/GameArea.vue'
   import logo from '/images/logo.svg'
-  import { computed, ref } from 'vue'
+  import { ref } from 'vue'
 
   const score = ref(0)
   const scene = ref('game') // 'game' or 'battle', might change to handle errors
   const userSelection = ref('')
-
-  const isStreak = computed(() => {return score.value >= 3 ? true : false})
 
   function goToBattle(userSelectionValue: string) {
     userSelection.value = userSelectionValue;
@@ -87,6 +86,10 @@
     color: orange
   }
 
+  .highstreak {
+    color: red;
+  }
+
 }
 
 .streak-box {
@@ -105,11 +108,19 @@
   &.streak {
     font-size: 1.5rem;
   }
+
+  &.highstreak {
+    font-size: 2rem;
+  }
 }
 
 .score-value {
   font-size: 3rem;
   font-weight: bold;
+
+  &.highstreak {
+    font-size: 4rem;
+  }
 
 }
 
