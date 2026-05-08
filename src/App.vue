@@ -5,8 +5,8 @@
             <div class="welcome-content">
                 <h1>👋Hey Guys</h1>
                 <p>Sorry I took so long to make this rock paper scissors project. Also I kind of rushed it since today's my last day🥲.</p>
-                <p>So, I decided to just have some fun with it. Oh also, I totally made music for this (🔊volume up!)</p>
-                <p>See if you can get 5 wins🔥! Losses don't count against you.</p>
+                <p>So, I decided to just have some fun with it. Oh also, I made music for this (🔊volume up!)</p>
+                <p>Try to get 5 wins🔥! Losses don't count against you.</p>
                 <p>Love you guys. My experience at 24G has been wonderful. Hopefully see you guys again💖!</p>
                 <p>Cheers, Kaeden💙</p>
                 <button @click="closeWelcomeOverlay()" class="start-button">LET IT RIDE!</button>
