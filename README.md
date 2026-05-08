@@ -2,6 +2,8 @@
 
 Inspired by [frontendmentor.io](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH)
 
+👀Try it out [here!](https://rock-paper-scissors-spock-lizard-n7uyvsosq.vercel.app/#/)
+
 ## Description
 
 Just rock paper scissors. I mean it's alright--it works, but definitely could be better.
