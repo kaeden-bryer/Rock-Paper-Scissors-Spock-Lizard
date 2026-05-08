@@ -1,6 +1,18 @@
 <template>
     <div class="app-container">
         <RouterView />
+        <div class="welcome-overlay">
+            <div class="welcome-content">
+                <h1>👋Hey Guys</h1>
+                <p>Sorry I took so long to make this rock paper scissors project. Also I kind of rushed it since today's my last day🥲.</p>
+                <p>So, I decided to just have some fun with it. Oh also, I totally made music for this (🔊volume up!)</p>
+                <p>See if you can get 5 wins🔥! Losses don't count against you.</p>
+                <p>Love you guys. My experience at 24G has been wonderful. Hopefully see you guys again💖!</p>
+                <p>Cheers, Kaeden💙</p>
+                <button @click="closeWelcomeOverlay()" class="start-button">LET IT RIDE!</button>
+            </div>
+
+        </div>
         <div>
             <button @click="toggleRulesModal()" class="rules-button">RULES</button>
         </div>
@@ -11,7 +23,7 @@
                     <img src="/images/icon-close.svg" class="icon-close" alt="close" />
                 </div>
                 <img src="/images/image-rules.svg" alt="rules" />
-                <audio autoplay loop>
+                <audio loop>
                     <source src="/music/Rock_Paper_Scissors_Beat.mp3" type="audio/mpeg">
                 </audio>
             </div>
@@ -31,6 +43,16 @@ export default {
     methods: {
         toggleRulesModal() {
             this.toggleRules = !this.toggleRules;
+        },
+        closeWelcomeOverlay() {
+            const welcomeOverlay = document.querySelector('.welcome-overlay') as HTMLElement;
+            if (welcomeOverlay) {
+                welcomeOverlay.style.display = 'none';
+            }
+            const audio = document.querySelector('audio') as HTMLAudioElement;
+            if (audio) {
+                audio.play();
+            }
         }
     }
 }
@@ -73,7 +95,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
     justify-content: center;
     align-items: center;
 }
@@ -92,6 +114,50 @@ export default {
     cursor: pointer;
     width: 20px;
     height: 20px;
+}
+
+.welcome-overlay {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.welcome-content {
+    display: flex;
+    background: rgba(250, 231, 179, 0.95);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 60vw;
+    height: 60vh;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    font-size: 1.1rem;
+
+    p {
+        margin: 0.5vw;
+    }
+}
+
+.start-button {
+    background-color: rgba(255, 189, 252, 0.9);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: black;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
 }
 
 </style>

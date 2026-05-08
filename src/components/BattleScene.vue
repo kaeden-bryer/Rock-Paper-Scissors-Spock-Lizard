@@ -81,6 +81,7 @@ export default {
             }
         },
         handlePlayAgain() {
+            this.computerSelectionImage = 'images/circle-loading.svg';
             this.$emit('playAgain');
         }
     },
