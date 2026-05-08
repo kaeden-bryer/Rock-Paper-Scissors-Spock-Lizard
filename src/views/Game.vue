@@ -8,8 +8,8 @@
         <h2 class="score-title" :class="{ 'streak': score >= 3, 'highstreak': score >= 5 }">SCORE</h2>
         <div class="streak-box">
           <p class="score-value" :class="{ 'streak': score >= 3, 'highstreak': score >= 5 }">{{ score }}</p>
-          <img v-if="score >= 3 && score < 5" src="/images/streak.gif">
-          <img v-if="score >= 5" src="/images/scream.png">
+          <img v-if="score >= 3 && score < 5" :src="asset('images/streak.gif')">
+          <img v-if="score >= 5" :src="asset('images/scream.png')">
         </div>
       </div>
     </div>
@@ -31,8 +31,10 @@
 <script setup lang="ts">
   import BattleScene from '../components/BattleScene.vue'
   import GameArea from '../components/GameArea.vue'
-  import logo from '/images/logo.svg'
   import { ref } from 'vue'
+
+  const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+  const logo = asset('images/logo.svg')
 
   const score = ref(0)
   const scene = ref('game') // 'game' or 'battle', might change to handle errors

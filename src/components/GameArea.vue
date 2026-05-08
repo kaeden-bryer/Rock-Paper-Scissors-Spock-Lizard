@@ -5,22 +5,22 @@
             <div class="buttons">
                 <div class="action-button-container" id="paper-button">
                     <ActionButton 
-                        icon="/images/icon-paper.svg" 
-                        circle="/images/circle-blue.svg" 
+                        :icon="paperIcon" 
+                        :circle="blueCircle" 
                         @click="$emit('beginBattle', 'paper')"
                     />
                 </div>
                 <div class="action-button-container" id="rock-button">
                     <ActionButton 
-                        icon="/images/icon-rock.svg" 
-                        circle="/images/circle-red.svg" 
+                        :icon="rockIcon" 
+                        :circle="redCircle" 
                         @click="$emit('beginBattle', 'rock')"
                     />
                 </div>
                 <div class="action-button-container" id="scissors-button" >
                     <ActionButton 
-                        icon="/images/icon-scissors.svg" 
-                        circle="/images/circle-yellow.svg" 
+                        :icon="scissorsIcon" 
+                        :circle="yellowCircle" 
                         @click="$emit('beginBattle', 'scissors')"
                     />
                 </div>
@@ -32,7 +32,7 @@
 
 <script lang="ts">
     import ActionButton from './ActionButton.vue'
-    import Triangle from '/images/bg-triangle.svg'
+    const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
 
     export default {
         components: {
@@ -41,7 +41,13 @@
         emits: ['beginBattle'],
         data() {
             return {
-                Triangle
+                Triangle: asset('images/bg-triangle.svg'),
+                paperIcon: asset('images/icon-paper.svg'),
+                blueCircle: asset('images/circle-blue.svg'),
+                rockIcon: asset('images/icon-rock.svg'),
+                redCircle: asset('images/circle-red.svg'),
+                scissorsIcon: asset('images/icon-scissors.svg'),
+                yellowCircle: asset('images/circle-yellow.svg')
             }
         }
     }

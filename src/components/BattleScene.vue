@@ -32,6 +32,8 @@ import { ref } from 'vue';
 import ActionButton from './ActionButton.vue';
 import confetti from '@hiseb/confetti';
 
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+
 
 export default {
     components: { 
@@ -46,10 +48,10 @@ export default {
     data() {
         return {
             selections: ['rock', 'paper', 'scissors'] as string[],
-            actionImage: ['/images/icon-rock.svg', '/images/icon-paper.svg', '/images/icon-scissors.svg'] as string[],
-            circleColor: ['/images/circle-red.svg', '/images/circle-blue.svg', '/images/circle-yellow.svg'] as string[],
+            actionImage: [asset('images/icon-rock.svg'), asset('images/icon-paper.svg'), asset('images/icon-scissors.svg')] as string[],
+            circleColor: [asset('images/circle-red.svg'), asset('images/circle-blue.svg'), asset('images/circle-yellow.svg')] as string[],
             computerSelectionImage: undefined as string | undefined,
-            computerCircleColor: '/images/circle-loading.svg' as string | undefined,
+            computerCircleColor: asset('images/circle-loading.svg') as string | undefined,
             gameResult: ref(''),
         };
     },
@@ -81,7 +83,7 @@ export default {
             }
         },
         handlePlayAgain() {
-            this.computerSelectionImage = 'images/circle-loading.svg';
+            this.computerSelectionImage = asset('images/circle-loading.svg');
             this.$emit('playAgain');
         }
     },

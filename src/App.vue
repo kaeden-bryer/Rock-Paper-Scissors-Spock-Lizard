@@ -20,11 +20,11 @@
             <div class="rules-modal">
                 <div class="rules-header">
                     <h2>RULES</h2>
-                    <img src="/images/icon-close.svg" class="icon-close" alt="close" />
+                    <img :src="asset('images/icon-close.svg')" class="icon-close" alt="close" />
                 </div>
-                <img src="/images/image-rules.svg" alt="rules" />
+                <img :src="asset('images/image-rules.svg')" alt="rules" />
                 <audio loop>
-                    <source src="/music/Rock_Paper_Scissors_Beat.mp3" type="audio/mpeg">
+                    <source :src="asset('music/Rock_Paper_Scissors_Beat.mp3')" type="audio/mpeg">
                 </audio>
             </div>
         </div>
@@ -41,6 +41,9 @@ export default {
         }
     },
     methods: {
+        asset(path: string) {
+            return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+        },
         toggleRulesModal() {
             this.toggleRules = !this.toggleRules;
         },

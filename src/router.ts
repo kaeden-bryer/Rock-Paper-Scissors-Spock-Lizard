@@ -1,4 +1,4 @@
-import { createMemoryHistory, createRouter } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 
 import Game from "./views/Game.vue";
 
@@ -7,6 +7,6 @@ const routes = [
 ]
 
 export const router = createRouter({
-    history: createMemoryHistory(),
+    history: createWebHashHistory(),
     routes
 })
